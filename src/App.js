@@ -13,7 +13,7 @@ function App() {
   const [bnState, setBtnState] =useState ("botCollection");
 
   useEffect(() => {
-    fetch("http://localhost:8001/bots")
+    fetch("https://jsonbackend-7hqi.onrender.com/bots")
     .then((r) => r.json())
     .then((data) => setBots(data));
   }, []);
@@ -50,7 +50,7 @@ function App() {
   function handleDelete(bot) {
     
     
-    fetch("http://localhost:8001/bots/"+bot.id , {method:'delete'})
+    fetch("https://jsonbackend-7hqi.onrender.com/bots/"+bot.id , {method:'delete'})
     .then((r) => r.json())
     .then(() => {
       setBots(bots.filter((item) => item.id != bot.id ))
